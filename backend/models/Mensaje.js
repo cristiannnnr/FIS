@@ -1,31 +1,23 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Alerta = sequelize.define('Alerta', {
+const Mensaje = sequelize.define('Mensaje', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  tipo: {
-    type: DataTypes.ENUM('perdido', 'encontrado'),
+  remitente: {
+    type: DataTypes.INTEGER,
     allowNull: false,
   },
-  id_mascota: {
+  destinatario: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
   },
-  detalles: {
+  contenido: {
     type: DataTypes.TEXT,
-    allowNull: true,
-  },
-  foto: {
-    type: DataTypes.STRING,
-    allowNull: true,
-  },
-  ubicacion: {
-    type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
   fecha: {
     type: DataTypes.DATE,
@@ -33,8 +25,8 @@ const Alerta = sequelize.define('Alerta', {
     defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'alertas',
+  tableName: 'mensajes',
   timestamps: false,
 });
 
-module.exports = Alerta;
+module.exports = Mensaje;

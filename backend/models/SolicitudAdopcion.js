@@ -1,40 +1,36 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Alerta = sequelize.define('Alerta', {
+const SolicitudAdopcion = sequelize.define('SolicitudAdopcion', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  tipo: {
-    type: DataTypes.ENUM('perdido', 'encontrado'),
-    allowNull: false,
-  },
   id_mascota: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
   },
-  detalles: {
-    type: DataTypes.TEXT,
-    allowNull: true,
+  id_adoptante: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
   },
-  foto: {
+  estado: {
     type: DataTypes.STRING,
-    allowNull: true,
-  },
-  ubicacion: {
-    type: DataTypes.STRING,
-    allowNull: true,
+    allowNull: false,
   },
   fecha: {
     type: DataTypes.DATE,
     allowNull: false,
     defaultValue: DataTypes.NOW,
   },
+  id_centro: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+  },
 }, {
-  tableName: 'alertas',
+  tableName: 'solicitudes_adopcion',
   timestamps: false,
 });
 
-module.exports = Alerta;
+module.exports = SolicitudAdopcion;

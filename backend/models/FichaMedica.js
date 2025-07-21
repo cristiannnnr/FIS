@@ -1,40 +1,35 @@
 const { DataTypes } = require('sequelize');
 const sequelize = require('../config/database');
 
-const Alerta = sequelize.define('Alerta', {
+const FichaMedica = sequelize.define('FichaMedica', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
-  tipo: {
-    type: DataTypes.ENUM('perdido', 'encontrado'),
-    allowNull: false,
-  },
   id_mascota: {
     type: DataTypes.INTEGER,
-    allowNull: true,
+    allowNull: false,
   },
   detalles: {
     type: DataTypes.TEXT,
     allowNull: true,
   },
-  foto: {
-    type: DataTypes.STRING,
+  vacunas: {
+    type: DataTypes.TEXT,
     allowNull: true,
   },
-  ubicacion: {
-    type: DataTypes.STRING,
+  citas: {
+    type: DataTypes.TEXT,
     allowNull: true,
   },
-  fecha: {
-    type: DataTypes.DATE,
+  id_centro: {
+    type: DataTypes.INTEGER,
     allowNull: false,
-    defaultValue: DataTypes.NOW,
   },
 }, {
-  tableName: 'alertas',
+  tableName: 'fichas_medicas',
   timestamps: false,
 });
 
-module.exports = Alerta;
+module.exports = FichaMedica;
