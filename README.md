@@ -82,4 +82,6 @@ El frontend estará disponible en [http://localhost:5173](http://localhost:5173)
 ---
 
 ## Autor
+Cristian David Romero Gil 
+Jairo Arturo Barrera
 - Proyecto para FIS - Universidad 
